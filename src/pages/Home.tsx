@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Search, Bot, Users, Target, TrendingUp, Award, Globe } from "lucide-react";
+import { ArrowRight, Zap, Search, Bot, Users, Target, TrendingUp, Award, Globe, ShoppingCart, CreditCard, GraduationCap, Heart, Home as HomeIcon, Building } from "lucide-react";
 import FloatingCubes from "@/components/FloatingCubes";
 import ServiceCard from "@/components/ServiceCard";
+import CubeText from "@/components/CubeText";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,7 +49,12 @@ const Home = () => {
   ];
 
   const industries = [
-    "E-commerce", "SaaS", "FinTech", "HealthTech", "EdTech", "Real Estate"
+    { name: "E-commerce", icon: ShoppingCart },
+    { name: "SaaS", icon: Globe },
+    { name: "FinTech", icon: CreditCard },
+    { name: "HealthTech", icon: Heart },
+    { name: "EdTech", icon: GraduationCap },
+    { name: "Real Estate", icon: Building },
   ];
 
   return (
@@ -60,11 +66,10 @@ const Home = () => {
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-6 text-center">
           <div className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <h1 className="font-poppins font-bold text-5xl md:text-7xl lg:text-8xl mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight">
-              Where Vision
-              <br />
-              Becomes Reality
-            </h1>
+            <CubeText 
+              text="Where Vision Becomes Reality" 
+              className="mb-6 leading-tight"
+            />
             
             <p className="font-inter text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
               We turn raw potential into structures that stand tall. 
@@ -165,13 +170,13 @@ const Home = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-4xl mx-auto">
             {industries.map((industry, index) => (
               <div 
-                key={industry}
-                className="bg-card border border-border rounded-lg p-4 text-center hover:bg-card-hover hover:border-border-bright transition-all duration-300 animate-fade-up group"
+                key={industry.name}
+                className="bg-card border border-border rounded-lg p-6 text-center hover:bg-card-hover hover:border-border-bright transition-all duration-300 animate-fade-up group cursor-pointer"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-8 h-8 bg-gradient-primary rounded-md mx-auto mb-3 group-hover:shadow-glow transition-all duration-300" />
+                <industry.icon className="w-8 h-8 text-primary mx-auto mb-3 group-hover:text-cyan transition-colors duration-300 group-hover:scale-110 transform" />
                 <p className="font-inter font-medium text-sm text-foreground group-hover:text-cyan transition-colors">
-                  {industry}
+                  {industry.name}
                 </p>
               </div>
             ))}
