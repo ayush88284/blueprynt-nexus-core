@@ -1,0 +1,209 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Zap, Search, Bot, Users, Target, TrendingUp, Award, Globe } from "lucide-react";
+import FloatingCubes from "@/components/FloatingCubes";
+import ServiceCard from "@/components/ServiceCard";
+
+const Home = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const services = [
+    {
+      icon: Globe,
+      title: "Landing Pages",
+      description: "High-converting landing pages that turn visitors into customers with architectural precision.",
+    },
+    {
+      icon: Search,
+      title: "SEO/AEO",
+      description: "Strategic optimization that builds your digital foundation for sustainable growth.",
+    },
+    {
+      icon: Bot,
+      title: "AI Agents",
+      description: "Intelligent automation systems that work 24/7 to scale your business operations.",
+    },
+    {
+      icon: Users,
+      title: "Influencer Marketing",
+      description: "Authentic partnerships with creators who align with your brand's blueprint.",
+    },
+    {
+      icon: Target,
+      title: "Social Ads",
+      description: "Precision-targeted campaigns that maximize ROI across all social platforms.",
+    },
+  ];
+
+  const metrics = [
+    { number: "300%", label: "Average ROAS Increase" },
+    { number: "2.5M+", label: "Impressions Generated" },
+    { number: "150+", label: "Successful Campaigns" },
+    { number: "98%", label: "Client Retention Rate" },
+  ];
+
+  const industries = [
+    "E-commerce", "SaaS", "FinTech", "HealthTech", "EdTech", "Real Estate"
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <FloatingCubes />
+        
+        {/* Hero Content */}
+        <div className="relative z-10 container mx-auto px-6 text-center">
+          <div className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <h1 className="font-poppins font-bold text-5xl md:text-7xl lg:text-8xl mb-6 bg-gradient-primary bg-clip-text text-transparent leading-tight">
+              Where Vision
+              <br />
+              Becomes Reality
+            </h1>
+            
+            <p className="font-inter text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+              We turn raw potential into structures that stand tall. 
+              Premium marketing solutions with architectural precision.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button variant="hero" size="lg" asChild>
+                <Link to="/brand-enquiry">
+                  Start Your Blueprint
+                  <ArrowRight className="ml-2" />
+                </Link>
+              </Button>
+              
+              <Button variant="outline" size="lg" asChild>
+                <Link to="/work">See Our Work</Link>
+              </Button>
+            </div>
+            
+            {/* Trust indicators */}
+            <div className="mt-16 animate-fade-up" style={{ animationDelay: "0.5s" }}>
+              <p className="font-inter text-sm text-muted-foreground mb-6">Trusted by industry leaders</p>
+              <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+                {["BeReal", "Myntra", "Flipkart", "Sugar Cosmetics", "Zomato"].map((brand, index) => (
+                  <div key={brand} className="font-poppins font-medium text-lg hover:text-cyan transition-colors cursor-pointer">
+                    {brand}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-border-bright rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 bg-gradient-hero">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-poppins font-bold text-4xl md:text-5xl mb-6 text-foreground">
+              Blueprint Your Success
+            </h2>
+            <p className="font-inter text-xl text-muted-foreground max-w-3xl mx-auto">
+              Five core pillars that form the foundation of every successful digital transformation.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {services.map((service, index) => (
+              <ServiceCard
+                key={service.title}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                delay={index * 100}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Metrics Section */}
+      <section className="py-24 bg-card border-y border-border">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {metrics.map((metric, index) => (
+              <div key={metric.label} className="text-center animate-fade-up" style={{ animationDelay: `${index * 100}ms` }}>
+                <div className="font-poppins font-bold text-4xl md:text-5xl bg-gradient-primary bg-clip-text text-transparent mb-2">
+                  {metric.number}
+                </div>
+                <div className="font-inter text-muted-foreground">
+                  {metric.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-poppins font-bold text-4xl md:text-5xl mb-6 text-foreground">
+              Industries We Transform
+            </h2>
+            <p className="font-inter text-xl text-muted-foreground max-w-3xl mx-auto">
+              From startups to enterprises, we craft solutions that stand the test of time.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-4xl mx-auto">
+            {industries.map((industry, index) => (
+              <div 
+                key={industry}
+                className="bg-card border border-border rounded-lg p-4 text-center hover:bg-card-hover hover:border-border-bright transition-all duration-300 animate-fade-up group"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="w-8 h-8 bg-gradient-primary rounded-md mx-auto mb-3 group-hover:shadow-glow transition-all duration-300" />
+                <p className="font-inter font-medium text-sm text-foreground group-hover:text-cyan transition-colors">
+                  {industry}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-24 bg-gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-primary opacity-5" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-cyan rounded-lg opacity-10 animate-float" />
+        </div>
+        
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h2 className="font-poppins font-bold text-4xl md:text-5xl mb-6 text-foreground">
+            Find Your Missing Piece Today
+          </h2>
+          <p className="font-inter text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Every great structure starts with a solid blueprint. Let's build yours.
+          </p>
+          
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/brand-enquiry">
+              Start Your Blueprint
+              <ArrowRight className="ml-2" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
