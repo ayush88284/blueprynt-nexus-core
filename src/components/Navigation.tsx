@@ -40,7 +40,7 @@ const Navigation = () => {
             <img
               src={logoImage}
               alt="BluePrynt"
-              className="h-12 w-auto transition-transform duration-300 group-hover:scale-105 drop-shadow-lg"
+              className="h-20 w-auto transition-transform duration-300 group-hover:scale-105 drop-shadow-lg"
               style={{ filter: 'drop-shadow(0 0 20px rgba(14, 165, 255, 0.3))' }}
             />
           </Link>
