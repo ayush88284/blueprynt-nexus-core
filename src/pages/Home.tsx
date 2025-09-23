@@ -16,8 +16,8 @@ const Home = () => {
   const services = [
     {
       icon: Globe,
-      title: "Landing Pages",
-      description: "High-converting landing pages that turn visitors into customers with architectural precision.",
+      title: "Website Development",
+      description: "Custom websites built with architectural precision that convert visitors into customers.",
     },
     {
       icon: Search,
@@ -30,9 +30,14 @@ const Home = () => {
       description: "Intelligent automation systems that work 24/7 to scale your business operations.",
     },
     {
+      icon: Zap,
+      title: "AI Prototyping",
+      description: "Rapid AI-powered prototyping that transforms ideas into tangible digital experiences.",
+    },
+    {
       icon: Users,
       title: "Influencer Marketing",
-      description: "Authentic partnerships with creators who align with your brand's blueprint.",
+      description: "Authentic partnerships with creators who align with your brand's BluePrynt.",
     },
     {
       icon: Target,
@@ -66,10 +71,9 @@ const Home = () => {
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-6 text-center">
           <div className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <CubeText 
-              text="Where Vision Becomes Reality" 
-              className="mb-6 leading-tight"
-            />
+            <h1 className="font-poppins font-bold text-5xl md:text-7xl lg:text-8xl mb-6 text-foreground leading-tight">
+              Where Vision Becomes Reality
+            </h1>
             
             <p className="font-inter text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
               We turn raw potential into structures that stand tall. 
@@ -79,7 +83,7 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button variant="hero" size="lg" asChild>
                 <Link to="/brand-enquiry">
-                  Start Your Blueprint
+                  Start Your BluePrynt
                   <ArrowRight className="ml-2" />
                 </Link>
               </Button>
@@ -105,8 +109,8 @@ const Home = () => {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-border-bright rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
+          <div className="w-6 h-10 border-2 border-cyan rounded-full flex justify-center shadow-glow">
+            <div className="w-1 h-3 bg-cyan rounded-full mt-2 animate-pulse shadow-lg" />
           </div>
         </div>
       </section>
@@ -116,14 +120,14 @@ const Home = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-poppins font-bold text-4xl md:text-5xl mb-6 text-foreground">
-              Blueprint Your Success
+              BluePrynt Your Success
             </h2>
             <p className="font-inter text-xl text-muted-foreground max-w-3xl mx-auto">
               Five core pillars that form the foundation of every successful digital transformation.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <ServiceCard
                 key={service.title}
@@ -184,6 +188,83 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Additional Features Section */}
+      <section className="py-24 bg-card border-y border-border">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-poppins font-bold text-4xl md:text-5xl mb-6 text-foreground">
+              Why Choose BluePrynt?
+            </h2>
+            <p className="font-inter text-xl text-muted-foreground max-w-3xl mx-auto">
+              More than an agency – we're your strategic partners in digital transformation.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {[
+              { icon: Award, title: "Proven Results", desc: "300% average ROAS increase across all campaigns" },
+              { icon: Zap, title: "Lightning Fast", desc: "Deploy campaigns in 48 hours, not weeks" },
+              { icon: TrendingUp, title: "Data-Driven", desc: "Every decision backed by real performance data" },
+              { icon: HomeIcon, title: "Full-Service", desc: "End-to-end solutions under one roof" }
+            ].map((feature, index) => (
+              <div key={feature.title} className="text-center animate-fade-up group" style={{ animationDelay: `${index * 100}ms` }}>
+                <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-8 h-8 text-primary-foreground" />
+                </div>
+                <h3 className="font-poppins font-semibold text-lg mb-2 text-foreground group-hover:text-cyan transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="font-inter text-sm text-muted-foreground">
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-poppins font-bold text-4xl md:text-5xl mb-6 text-foreground">
+              Our BluePrynt Process
+            </h2>
+            <p className="font-inter text-xl text-muted-foreground max-w-3xl mx-auto">
+              A proven methodology that turns vision into measurable results.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {[
+              { step: "01", title: "Discovery", desc: "Deep dive into your brand, audience, and objectives" },
+              { step: "02", title: "Strategy", desc: "Craft a custom BluePrynt tailored to your goals" },
+              { step: "03", title: "Execute", desc: "Launch campaigns with precision and speed" },
+              { step: "04", title: "Optimize", desc: "Continuous improvement based on real-time data" }
+            ].map((step, index) => (
+              <div key={step.step} className="relative animate-fade-up" style={{ animationDelay: `${index * 150}ms` }}>
+                <div className="bg-gradient-hero border border-border rounded-xl p-6 hover:border-border-bright transition-all duration-300 group">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-lg shadow-glow group-hover:scale-110 transition-transform">
+                      {step.step}
+                    </div>
+                    <h3 className="font-poppins font-semibold text-lg mb-3 text-foreground group-hover:text-cyan transition-colors">
+                      {step.title}
+                    </h3>
+                    <p className="font-inter text-sm text-muted-foreground leading-relaxed">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+                {index < 3 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-border transform -translate-y-1/2" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-24 bg-gradient-hero relative overflow-hidden">
         <div className="absolute inset-0">
@@ -196,12 +277,12 @@ const Home = () => {
             Find Your Missing Piece Today
           </h2>
           <p className="font-inter text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Every great structure starts with a solid blueprint. Let's build yours.
+            Every great structure starts with a solid BluePrynt. Let's build yours.
           </p>
           
           <Button variant="hero" size="lg" asChild>
             <Link to="/brand-enquiry">
-              Start Your Blueprint
+              Start Your BluePrynt
               <ArrowRight className="ml-2" />
             </Link>
           </Button>

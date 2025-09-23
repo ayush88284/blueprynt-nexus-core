@@ -5,29 +5,29 @@ import { ArrowRight, Linkedin, Twitter, Award, Target, Lightbulb, Users, Calenda
 const About = () => {
   const team = [
     {
-      name: "Ayush Kumar",
+      name: "Ayush Singh",
       role: "CEO & Founder",
-      bio: "Visionary leader with 8+ years in digital marketing. Previously scaled 3 startups to 7-figure revenues.",
-      image: "/api/placeholder/300/300",
-      linkedin: "#",
+      bio: "Visionary leader with 8+ years in digital marketing. Ayush architects growth strategies that build lasting success.",
+      image: "/src/assets/ayush.jpg",
+      linkedin: "https://www.linkedin.com/in/ayushsingh1214/",
       twitter: "#",
-      achievements: ["Forbes 30 Under 30", "Marketing Leader 2023"],
+      achievements: ["Marketing Leader 2023", "Growth Expert"],
     },
     {
-      name: "Vrutti Patel",
+      name: "Vrutti Gala",
       role: "Head of Marketing",
-      bio: "Strategic marketing expert with a track record of 400%+ growth campaigns across Beauty, Fashion & Tech.",
-      image: "/api/placeholder/300/300",
-      linkedin: "#",
+      bio: "Creative strategist who transforms brand visions into compelling narratives that resonate with audiences.",
+      image: "/src/assets/vrutti.png",
+      linkedin: "https://www.linkedin.com/in/vrutti-g/",
       twitter: "#",
       achievements: ["Growth Hacker of the Year", "Campaign Excellence Award"],
     },
     {
-      name: "Suryodaya Singh",
-      role: "CTO & Co-founder",
-      bio: "Tech innovator building AI-powered marketing solutions. Former Senior Engineer at Google and Microsoft.",
-      image: "/api/placeholder/300/300",
-      linkedin: "#",
+      name: "Suryodaya Pandey",
+      role: "CTO",
+      bio: "Technical mastermind who builds the infrastructure that powers our cutting-edge marketing solutions.",
+      image: "/src/assets/suryodaya.jpg",
+      linkedin: "https://www.linkedin.com/in/suryodaya27/",
       twitter: "#",
       achievements: ["AI Innovation Award", "Tech Leader 2023"],
     },
@@ -158,8 +158,12 @@ const About = () => {
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 {/* Avatar */}
-                <div className="w-24 h-24 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-primary-foreground">
-                  {member.name.split(' ').map(n => n[0]).join('')}
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary shadow-glow">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
                 <h3 className="font-poppins font-semibold text-xl mb-2 text-foreground">

@@ -64,7 +64,7 @@ const Navigation = () => {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Button variant="outline" asChild>
-              <Link to="/brand-enquiry">Start Your Blueprint</Link>
+              <Link to="/brand-enquiry">Start Your BluePrynt</Link>
             </Button>
           </div>
 
@@ -97,7 +97,7 @@ const Navigation = () => {
               ))}
               <div className="pt-4 border-t border-border">
                 <Button variant="outline" className="w-full" asChild>
-                  <Link to="/brand-enquiry">Start Your Blueprint</Link>
+                  <Link to="/brand-enquiry">Start Your BluePrynt</Link>
                 </Button>
               </div>
             </div>
