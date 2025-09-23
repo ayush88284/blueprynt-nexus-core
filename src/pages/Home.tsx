@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Search, Bot, Users, Target, TrendingUp, Award, Globe, ShoppingCart, CreditCard, GraduationCap, Heart, Home as HomeIcon, Building } from "lucide-react";
-import FloatingCubes from "@/components/FloatingCubes";
+import { ArrowRight, Zap, Search, Bot, Users, Target, TrendingUp, Award, Globe, ShoppingCart, CreditCard, GraduationCap, Heart, Home as HomeIcon, Building, Mouse } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
-import CubeText from "@/components/CubeText";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -63,10 +62,11 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <AnimatedBackground />
+      
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <FloatingCubes />
+      <section className="relative min-h-screen bg-gradient-hero flex items-center justify-center overflow-hidden">
         
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-6 text-center">
@@ -109,8 +109,8 @@ const Home = () => {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-cyan rounded-full flex justify-center shadow-glow">
-            <div className="w-1 h-3 bg-cyan rounded-full mt-2 animate-pulse shadow-lg" />
+          <div className="w-6 h-10 border-2 border-cyan rounded-full flex justify-center shadow-glow bg-cyan/10">
+            <div className="w-1 h-3 bg-gradient-cyan rounded-full mt-2 animate-glow-pulse shadow-glow" />
           </div>
         </div>
       </section>

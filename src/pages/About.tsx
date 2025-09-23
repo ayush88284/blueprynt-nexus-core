@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Linkedin, Twitter, Award, Target, Lightbulb, Users, Calendar, MapPin } from "lucide-react";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const About = () => {
   const team = [
@@ -79,7 +80,9 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-24 bg-background">
+    <div className="min-h-screen pt-24 bg-background relative">
+      <AnimatedBackground />
+      
       {/* Hero Section */}
       <section className="py-16 bg-gradient-hero">
         <div className="container mx-auto px-6 text-center">

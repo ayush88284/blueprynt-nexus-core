@@ -5,11 +5,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, ArrowLeft, CheckCircle, Upload, Building, Mail, Phone, Globe, Calendar, DollarSign, Target, FileText } from "lucide-react";
+import { z } from "zod";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import { brandEnquirySchema, type BrandEnquiryFormData } from "@/components/FormValidation";
 
 const BrandEnquiry = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
+  const [errors, setErrors] = useState<Partial<BrandEnquiryFormData>>({});
+  const [formData, setFormData] = useState<BrandEnquiryFormData>({
     // Company Info
     companyName: "",
     website: "",
@@ -157,7 +161,8 @@ const BrandEnquiry = () => {
   }
 
   return (
-    <div className="min-h-screen pt-24 bg-background">
+    <div className="min-h-screen pt-24 bg-background relative">
+      <AnimatedBackground />
       {/* Header */}
       <section className="py-8 bg-gradient-hero">
         <div className="container mx-auto px-6">

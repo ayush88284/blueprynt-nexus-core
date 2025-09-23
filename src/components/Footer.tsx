@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Instagram, Youtube, Twitter } from "lucide-react";
+import { Linkedin, Instagram, Youtube, Twitter, Square } from "lucide-react";
 import logoImage from "@/assets/blueprynt-logo.png";
 
 const Footer = () => {
@@ -41,7 +41,7 @@ const Footer = () => {
               <img
                 src={logoImage}
                 alt="BluePrynt"
-                className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
+                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
             <p className="font-inter text-muted-foreground mb-6 leading-relaxed">
@@ -123,7 +123,7 @@ const Footer = () => {
           </p>
           <p className="font-inter text-muted-foreground text-sm flex items-center">
             Find your missing piece.
-            <span className="ml-2 w-3 h-3 bg-cyan rounded-sm animate-pulse" />
+            <Square className="ml-2 w-3 h-3 text-cyan animate-pulse transform rotate-45" />
           </p>
         </div>
       </div>

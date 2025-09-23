@@ -4,9 +4,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
+import { z } from "zod";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import { contactFormSchema, type ContactFormData } from "@/components/FormValidation";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
     company: "",
@@ -15,6 +18,7 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Partial<ContactFormData>>({});
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -23,9 +27,23 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    
+    try {
+      contactFormSchema.parse(formData);
+      setErrors({});
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors: Partial<ContactFormData> = {};
+        error.errors.forEach((err) => {
+          if (err.path[0]) {
+            fieldErrors[err.path[0] as keyof ContactFormData] = err.message;
+          }
+        });
+        setErrors(fieldErrors);
+      }
+    }
   };
 
   const contactInfo = [
@@ -66,7 +84,8 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-24 bg-background">
+    <div className="min-h-screen pt-24 bg-background relative">
+      <AnimatedBackground />
       {/* Hero Section */}
       <section className="py-16 bg-gradient-hero">
         <div className="container mx-auto px-6 text-center">
@@ -175,6 +194,7 @@ const Contact = () => {
                           required
                           className="mt-1"
                         />
+                        {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                       </div>
                       <div>
                         <Label htmlFor="email">Email *</Label>
@@ -188,13 +208,14 @@ const Contact = () => {
                           required
                           className="mt-1"
                         />
+                        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                       </div>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="company">Company</Label>
-                        <Input
+                         <Input
                           id="company"
                           name="company"
                           value={formData.company}
@@ -202,6 +223,7 @@ const Contact = () => {
                           placeholder="Your company name"
                           className="mt-1"
                         />
+                        {errors.company && <p className="text-red-500 text-sm mt-1">{errors.company}</p>}
                       </div>
                       <div>
                         <Label htmlFor="phone">Phone</Label>
@@ -213,6 +235,7 @@ const Contact = () => {
                           placeholder="+91 98765 43210"
                           className="mt-1"
                         />
+                        {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                       </div>
                     </div>
 
@@ -232,6 +255,7 @@ const Contact = () => {
                           </option>
                         ))}
                       </select>
+                      {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}
                     </div>
 
                     <div>
@@ -246,6 +270,7 @@ const Contact = () => {
                         rows={5}
                         className="mt-1"
                       />
+                      {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                     </div>
 
                     <Button type="submit" variant="hero" className="w-full">
