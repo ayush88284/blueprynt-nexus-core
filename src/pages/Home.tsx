@@ -71,34 +71,38 @@ const Home = () => {
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-6 text-center">
           <div className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <h1 className="font-poppins font-bold text-5xl md:text-7xl lg:text-8xl mb-6 text-foreground leading-tight">
+            <h1 className="font-heading font-bold text-6xl md:text-8xl lg:text-9xl mb-8 text-foreground leading-tight animate-fade-up bg-gradient-primary bg-clip-text text-transparent">
               Where Vision Becomes Reality
             </h1>
             
-            <p className="font-inter text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="font-body text-xl md:text-3xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: "0.2s" }}>
               We turn raw potential into structures that stand tall. 
               Premium marketing solutions with architectural precision.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button variant="hero" size="lg" asChild>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-up" style={{ animationDelay: "0.4s" }}>
+              <Button variant="hero" size="lg" asChild className="hover:scale-110 transition-transform duration-300 shadow-glow text-lg px-8 py-6">
                 <Link to="/brand-enquiry">
                   Start Your BluePrynt
-                  <ArrowRight className="ml-2" />
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" asChild className="hover:scale-105 transition-all duration-300 text-lg px-8 py-6 border-2">
                 <Link to="/work">See Our Work</Link>
               </Button>
             </div>
             
             {/* Trust indicators */}
-            <div className="mt-16 animate-fade-up" style={{ animationDelay: "0.5s" }}>
-              <p className="font-inter text-sm text-muted-foreground mb-6">Trusted by industry leaders</p>
-              <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+            <div className="mt-20 animate-fade-up" style={{ animationDelay: "0.6s" }}>
+              <p className="font-body text-base text-muted-foreground mb-8 tracking-wider uppercase">Trusted by industry leaders</p>
+              <div className="flex flex-wrap justify-center items-center gap-12">
                 {["BeReal", "Myntra", "Flipkart", "Sugar Cosmetics", "Zomato"].map((brand, index) => (
-                  <div key={brand} className="font-poppins font-medium text-lg hover:text-cyan transition-colors cursor-pointer">
+                  <div 
+                    key={brand} 
+                    className="font-heading font-semibold text-xl hover:text-cyan transition-all duration-300 cursor-pointer hover:scale-110 opacity-70 hover:opacity-100"
+                    style={{ animationDelay: `${0.7 + index * 0.1}s` }}
+                  >
                     {brand}
                   </div>
                 ))}
@@ -108,21 +112,22 @@ const Home = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-cyan rounded-full flex justify-center shadow-glow bg-cyan/10">
-            <div className="w-1 h-3 bg-gradient-cyan rounded-full mt-2 animate-glow-pulse shadow-glow" />
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <Mouse className="w-8 h-8 text-cyan animate-glow-pulse" strokeWidth={1.5} />
+          <div className="w-8 h-12 border-2 border-cyan rounded-full flex justify-center shadow-glow bg-cyan/10 mt-2">
+            <div className="w-1.5 h-4 bg-gradient-cyan rounded-full mt-2 animate-glow-pulse shadow-glow" />
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-gradient-hero">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-poppins font-bold text-4xl md:text-5xl mb-6 text-foreground">
+      <section className="py-32 bg-gradient-hero relative overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-20 animate-fade-up">
+            <h2 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl mb-8 text-foreground">
               BluePrynt Your Success
             </h2>
-            <p className="font-inter text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="font-body text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
               Five core pillars that form the foundation of every successful digital transformation.
             </p>
           </div>
@@ -142,15 +147,16 @@ const Home = () => {
       </section>
 
       {/* Metrics Section */}
-      <section className="py-24 bg-card border-y border-border">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="py-32 bg-card border-y border-border relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-primary opacity-5" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             {metrics.map((metric, index) => (
-              <div key={metric.label} className="text-center animate-fade-up" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="font-poppins font-bold text-4xl md:text-5xl bg-gradient-primary bg-clip-text text-transparent mb-2">
+              <div key={metric.label} className="text-center animate-fade-up group cursor-default" style={{ animationDelay: `${index * 100}ms` }}>
+                <div className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl bg-gradient-primary bg-clip-text text-transparent mb-4 group-hover:scale-110 transition-transform duration-300">
                   {metric.number}
                 </div>
-                <div className="font-inter text-muted-foreground">
+                <div className="font-body text-base md:text-lg text-muted-foreground group-hover:text-cyan transition-colors">
                   {metric.label}
                 </div>
               </div>

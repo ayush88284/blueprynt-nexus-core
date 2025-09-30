@@ -40,8 +40,8 @@ const Navigation = () => {
             <img
               src={logoImage}
               alt="BluePrynt - Premium Marketing Agency"
-              className="h-36 w-auto transition-transform duration-300 group-hover:scale-105 drop-shadow-lg"
-              style={{ filter: 'drop-shadow(0 0 20px rgba(14, 165, 255, 0.3))' }}
+              className="h-48 w-auto transition-all duration-500 group-hover:scale-110 drop-shadow-2xl"
+              style={{ filter: 'drop-shadow(0 0 30px rgba(14, 165, 255, 0.5))' }}
             />
           </Link>
 
