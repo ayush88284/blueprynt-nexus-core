@@ -66,7 +66,7 @@ const Home = () => {
       <AnimatedBackground />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-hero flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen bg-background flex items-center justify-center overflow-hidden">
         
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-6 text-center">

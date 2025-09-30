@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Linkedin, Twitter, Award, Target, Lightbulb, Users, Calendar, MapPin } from "lucide-react";
+import { ArrowRight, Linkedin, Twitter, Award, Target, Lightbulb, Users } from "lucide-react";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import ayushImage from "@/assets/ayush-2.jpg";
+import vruttiImage from "@/assets/vrutti-2.png";
+import suryodayaImage from "@/assets/pandery-2.jpg";
 
 const About = () => {
   const team = [
@@ -9,7 +12,7 @@ const About = () => {
       name: "Ayush Singh",
       role: "CEO & Founder",
       bio: "Visionary leader with 8+ years in digital marketing. Ayush architects growth strategies that build lasting success.",
-      image: "/src/assets/ayush.jpg",
+      image: ayushImage,
       linkedin: "https://www.linkedin.com/in/ayushsingh1214/",
       twitter: "#",
       achievements: ["Marketing Leader 2023", "Growth Expert"],
@@ -18,7 +21,7 @@ const About = () => {
       name: "Vrutti Gala",
       role: "Head of Marketing",
       bio: "Creative strategist who transforms brand visions into compelling narratives that resonate with audiences.",
-      image: "/src/assets/vrutti.png",
+      image: vruttiImage,
       linkedin: "https://www.linkedin.com/in/vrutti-g/",
       twitter: "#",
       achievements: ["Growth Hacker of the Year", "Campaign Excellence Award"],
@@ -27,7 +30,7 @@ const About = () => {
       name: "Suryodaya Pandey",
       role: "CTO",
       bio: "Technical mastermind who builds the infrastructure that powers our cutting-edge marketing solutions.",
-      image: "/src/assets/suryodaya.jpg",
+      image: suryodayaImage,
       linkedin: "https://www.linkedin.com/in/suryodaya27/",
       twitter: "#",
       achievements: ["AI Innovation Award", "Tech Leader 2023"],
@@ -161,10 +164,10 @@ const About = () => {
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 {/* Avatar */}
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary shadow-glow">
+                <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary shadow-glow">
                   <img 
                     src={member.image} 
-                    alt={member.name}
+                    alt={`${member.name} - ${member.role} at BluePrynt`}
                     className="w-full h-full object-cover"
                   />
                 </div>

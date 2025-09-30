@@ -39,8 +39,8 @@ const Navigation = () => {
           <Link to="/" className="flex items-center space-x-3 group">
             <img
               src={logoImage}
-              alt="BluePrynt"
-              className="h-28 w-auto transition-transform duration-300 group-hover:scale-105 drop-shadow-lg"
+              alt="BluePrynt - Premium Marketing Agency"
+              className="h-36 w-auto transition-transform duration-300 group-hover:scale-105 drop-shadow-lg"
               style={{ filter: 'drop-shadow(0 0 20px rgba(14, 165, 255, 0.3))' }}
             />
           </Link>

@@ -14,8 +14,11 @@ export default {
     },
     extend: {
       fontFamily: {
+        sans: ['Outfit', 'Inter', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
+        outfit: ['Outfit', 'sans-serif'],
+        grotesk: ['Space Grotesk', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
